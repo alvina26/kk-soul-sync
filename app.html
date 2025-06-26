@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KK Tribute | MusicGuru</title>
+  <meta name="description" content="Celebrate the legendary playback singer KK with his greatest hits and lyrics">
+  <meta property="og:title" content="KK Tribute | MusicGuru">
+  <meta property="og:description" content="Celebrate the legendary playback singer KK with his greatest hits and lyrics">
+  <meta property="og:image" content="https://example.com/kk-tribute-preview.jpg">
+  <meta property="og:url" content="https://example.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading KK's Musical Magic...</div>
+  </div>
+
+  <header>
+    <nav>
+      <div class="brand">
+        <img src="logo.jpg" alt="MusicGuru">
+        <span>KK Tribute</span>
+      </div>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About KK</a></li>
+        <li><a href="#player">Music</a></li>
+        <li><a href="#Awards">Awards</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <button class="btn-login" onclick="toggleModal('loginModal')">Login</button>
+        <button class="btn-signup" onclick="toggleModal('signupModal')">Sign Up</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Celebrating the Legendary KK</h1>
+        <p>Experience the magic of Krishna Kumar Kunnath's timeless voice</p>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="about-content">
+        <h2>About KK</h2>
+        <p>Krishna Kumar Kunnath (1968–2022), popularly known as KK, was one of India's most beloved playback singers. With a career spanning over three decades, KK lent his soulful voice to hundreds of songs across multiple languages, leaving an indelible mark on Indian music.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-number">3000+</span>
+            <span class="stat-label">Live Performances</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Songs Recorded</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Years in Industry</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="images/KK2.jpeg" alt="KK Profile">
+      </div>
+    </section>
+
+    <section id="player" class="player-section">
+      <div class="container">
+        <div class="songList">
+          <h2>Best Of KK</h2>
+          <div class="search-box">
+            <input type="text" placeholder="Search songs..." id="searchInput">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="songItemContainer" id="songItemContainer"></div>
+        </div>
+        <div class="lyrics-container">
+          <h3>Now Playing</h3>
+          <div class="current-song-info">
+            <img id="currentSongCover" src="covers/1.jpg" alt="Current Song">
+            <div>
+              <h4 id="currentSongTitle">Ajab Si (Om Shanti Om)</h4>
+              <p id="currentSongAlbum">Album: Om Shanti Om (2007)</p>
+            </div>
+          </div>
+          <div class="lyrics-display" id="lyricsDisplay">
+            <p class="lyrics-line">Select a song to view lyrics</p>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="awards-section" id="awards">
+  <h2>Awards & Honors</h2>
+  <div class="awards-list">
+    <p>🏆 Filmfare Award for Best Male Playback Singer – "Khuda Jaane"</p>
+    <p>🏆 Screen Award for Best Playback Singer – "Aankhon Mein Teri"</p>
+    <p>🏅 IIFA Award nominations for "Tadap Tadap", "Tu Hi Meri Shab Hai", and others</p>
+    <p>🎖️ MTV Immies Best Singer Award – Independent Album “Pal”</p>
+    <p>🌟 Honored by many live concerts and music festivals worldwide</p>
+  </div>
+</section>
+
+    <section id="gallery" class="gallery-section">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <img src="images/Concert1.jpeg" alt="KK performing live">
+        <img src="images/kk.jpeg" alt="KK closeup">
+        <img src="images/Concert2.jpeg" alt="KK with fans">
+        
+        <img src="images/Concert4.png" alt="KK performing live">
+        <img src="images/Concert5.png" alt="KK closeup">
+        <img src="images/Concert6 (2).png" alt="KK with fans">
+      </div>
+    </section>
+  </main>
+
+  <div class="player-controls">
+    <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
+    <div class="controls-container">
+      <div class="song-info" id="songInfo">
+        <img src="covers/1.jpg" alt="" id="gif">
+        <div class="song-info-text">
+          <p id="masterSongName">Ajab Si (Om Shanti Om) - KK</p>
+          <p class="song-time"><span id="currentTime">0:00</span> / <span id="totalTime">4:01</span></p>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="shuffle"><i class="fas fa-random"></i></button>
+        <button id="previous"><i class="fas fa-step-backward"></i></button>
+        <button id="masterPlay"><i class="fas fa-play"></i></button>
+        <button id="next"><i class="fas fa-step-forward"></i></button>
+        <button id="repeat"><i class="fas fa-redo"></i></button>
+      </div>
+      <div class="volume-control">
+        <i class="fas fa-volume-up"></i>
+        <input type="range" id="volumeSlider" min="0" max="100" value="80">
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-player" id="mobilePlayer">
+    <div class="mobile-player-info">
+      <img class="mobile-player-img" id="mobilePlayerImg" src="covers/1.jpg" alt="Now Playing">
+      <div class="mobile-player-text">
+        <div class="mobile-player-title" id="mobilePlayerTitle">Ajab Si (Om Shanti Om)</div>
+        <div class="mobile-player-artist" id="mobilePlayerArtist">KK</div>
+      </div>
+    </div>
+    <div class="mobile-player-controls">
+      <button class="mobile-player-btn" id="mobilePlayBtn"><i class="fas fa-play"></i></button>
+      <button class="mobile-player-btn" id="mobileNextBtn"><i class="fas fa-step-forward"></i></button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>KK Tribute</h3>
+        <p>Celebrating the life and music of Krishna Kumar Kunnath (1968–2022)</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About KK</a></li>
+          <li><a href="#player">Music</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> KK Tribute Project. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="toggleModal('loginModal')">&times;</span>
+      <h2>Login</h2>
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button>Submit</button>
+    </div>
+  </div>
+
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="toggleModal('signupModal')">&times;</span>
+      <h2>Sign Up</h2>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button>Register</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    function toggleModal(id) {
+      const modal = document.getElementById(id);
+      modal.style.display = modal.style.display === "block" ? "none" : "block";
+    }
+  </script>
+  <script>
+  const awardItems = document.querySelectorAll(".awards-list p");
+
+  function revealAwards() {
+    const triggerPoint = window.innerHeight * 0.9;
+
+    awardItems.forEach((item) => {
+      const itemTop = item.getBoundingClientRect().top;
+      if (itemTop < triggerPoint) {
+        item.classList.add("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealAwards);
+  window.addEventListener("load", revealAwards);
+</script>
+
+</body>
+</html>
